@@ -1,12 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "node ./build.mjs",
-  "functions": {
-    "dist/index.mjs": {
-      "runtime": "@vercel/node"
-    }
-  },
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/dist/index.mjs" }
+  "builds": [
+    { "src": "dist/index.mjs", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/dist/index.mjs" }
   ]
 }
